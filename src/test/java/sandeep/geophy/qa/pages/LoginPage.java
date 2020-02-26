@@ -26,4 +26,8 @@ public class LoginPage {
         this.enterPassword(password);
         this.submitForm();
     }
+
+    public void clickForgotPasswordLink() {
+        $("a[href='https://evra.geophy.com/password/reset']").click();
+    }
 }

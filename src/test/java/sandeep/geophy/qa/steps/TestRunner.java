@@ -1,7 +1,9 @@
 package sandeep.geophy.qa.steps;
 
+import com.codeborne.selenide.junit.ScreenShooter;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.Rule;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -9,6 +11,9 @@ import org.junit.runner.RunWith;
         features = "src/test/java/sandeep/geophy/qa/test/resources",
         glue = "",
         plugin = {"de.monochromata.cucumber.report.PrettyReports:target/cucumber"},
-        stepNotifications = true)
+        strict = true
+        )
 public class TestRunner {
+    @Rule
+    public ScreenShooter makeScreenshotOnEveryTest = ScreenShooter.failedTests().succeededTests();
 }

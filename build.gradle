@@ -22,6 +22,7 @@ task cucumber() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = ['--plugin', 'de.monochromata.cucumber.report.PrettyReports:target/cucumber',
                     '--glue', 'sandeep.geophy.qa.steps',
+                    '--strict',
                     'src/test/java/sandeep/geophy/qa/test/resources']
         }
     }

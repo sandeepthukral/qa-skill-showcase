@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import sandeep.geophy.qa.pages.LoginPage;
-import sandeep.geophy.qa.pages.PasswordResetPage;
 import sandeep.geophy.qa.pages.SearchPage;
 
 import static org.junit.Assert.assertTrue;

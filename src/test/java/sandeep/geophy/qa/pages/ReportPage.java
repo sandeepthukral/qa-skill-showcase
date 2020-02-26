@@ -1,23 +1,30 @@
 package sandeep.geophy.qa.pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class ReportPage {
+
+    SelenideElement
+            reportSection=$("section.report-section"),
+            transactionPrice=$("h1[data-transaction-price]"),
+            dataCapRate=$("h1[data-cap-rate]");
+
     public boolean isPageLoaded(){
         // Using waitUntil because report generation can take longer than normal
-        return $("section.report-section")
+        return reportSection
                 .waitUntil(Condition.appear, 10000)
                 .exists();
     }
 
     public String getValuation() {
-        return this.transformTransactionPrice($("h1[data-transaction-price]").text());
+        return this.transformTransactionPrice(transactionPrice.text());
     }
 
     public String getCapRate() {
-        return $("h1[data-cap-rate]").text();
+        return dataCapRate.text();
     }
 
     private String transformTransactionPrice(String input) {

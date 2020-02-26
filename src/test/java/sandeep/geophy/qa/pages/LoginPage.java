@@ -1,37 +1,48 @@
 package sandeep.geophy.qa.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoginPage {
+public class LoginPage{
+
+    SelenideElement
+            username=$(By.id("email")),
+            password=$(By.id("password")),
+            submitButton=$("button[type='submit']"),
+            forgotPasswordLink=$("a[href='https://evra.geophy.com/password/reset']"),
+            signupLink=$("a[href='https://evra.geophy.com/signup']");
+
     public void visit() {
         open("https://evra.geophy.com/login");
     }
+
     public void enterUsername(String username)  {
-        $(By.id("email")).val(username);
+        this.username.val(username);
     }
 
     public void enterPassword(String password)  {
-        $(By.id("password")).val(password);
+        this.password.val(password);
     }
 
     public void submitForm() {
-        $(By.cssSelector("button[type='submit']")).click();
+        this.submitButton.click();
     }
 
-    public void login(String username, String password) {
+    public LoginPage login(String username, String password) {
         this.enterUsername(username);
         this.enterPassword(password);
         this.submitForm();
+        return this;
     }
 
     public void clickForgotPasswordLink() {
-        $("a[href='https://evra.geophy.com/password/reset']").click();
+        forgotPasswordLink.click();
     }
 
     public void clickSignupLink() {
-        $("a[href='https://evra.geophy.com/signup']").click();
+        signupLink.click();
     }
 }

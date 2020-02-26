@@ -1,40 +1,50 @@
 package sandeep.geophy.qa.pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
 
+    SelenideElement
+            pageForm=$("form[action='https://evra.geophy.com/search']"),
+            addressInput=$(By.id("address_input")),
+            firstAddressSuggested=$(".pac-container > .pac-item", 0),
+            noiInput=$(By.id("noi")),
+            numberOfUnitsInput=$(By.name("number_of_units")),
+            yearBuiltInput=$(By.name("year_built")),
+            occupancyInput=$(By.name("occupancy")),
+            submitButton=$("button[type='submit']");
+
+
     public boolean isPageLoaded() {
-        return $("form[action='https://evra.geophy.com/search']")
-                .shouldBe(Condition.visible)
-                .exists();
+        return pageForm.shouldBe(Condition.visible).exists();
     }
 
     public void enterAddress() {
-        $(By.id("address_input")).val("555 N. College Avenue, Tempe, AZ, 85281");
-        $(".pac-container > .pac-item", 0).click();
+        addressInput.val("555 N. College Avenue, Tempe, AZ, 85281");
+        firstAddressSuggested.click();
     }
 
     public void enterNOI() {
-        $(By.id("noi")).val("2000000");
+        noiInput.val("2000000");
     }
 
     public void enterNumberOfUnits() {
-        $(By.name("number_of_units")).val("200");
+        numberOfUnitsInput.val("200");
     }
 
     public void enterYearOfConstruction() {
-        $(By.name("year_built")).val("2000");
+        yearBuiltInput.val("2000");
     }
 
     public void enterPercentageOccupancy(String percentage) {
-        $(By.name("occupancy")).val(percentage);
+        occupancyInput.val(percentage);
     }
 
     public void submitForm() {
-        $("button[type='submit']").click();
+        submitButton.click();
     }
 }

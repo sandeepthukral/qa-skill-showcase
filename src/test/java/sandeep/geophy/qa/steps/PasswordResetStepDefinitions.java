@@ -16,6 +16,6 @@ public class PasswordResetStepDefinitions {
     @And("it should have an email address field")
     public void itShouldHaveAnEmailAddressField() {
         PasswordResetPage page = new PasswordResetPage();
-        assertTrue(page.isEmailFieldDisplayed());
+        assertTrue(page.isEmailInputDisplayed());
     }
 }

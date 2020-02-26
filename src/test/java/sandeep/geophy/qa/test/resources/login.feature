@@ -12,3 +12,8 @@ Feature: Geophy Login screen
     When the Forgot Password link is clicked
     Then the password reset page should be displayed
     And it should have an email address field
+
+  Scenario: signup form is displayed when signup link is clicked
+    Given an open browser with login page
+    When the Signup link is clicked
+    Then the signup page should be displayed

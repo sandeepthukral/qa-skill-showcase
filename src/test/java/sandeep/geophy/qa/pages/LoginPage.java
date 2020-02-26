@@ -30,4 +30,8 @@ public class LoginPage {
     public void clickForgotPasswordLink() {
         $("a[href='https://evra.geophy.com/password/reset']").click();
     }
+
+    public void clickSignupLink() {
+        $("a[href='https://evra.geophy.com/signup']").click();
+    }
 }

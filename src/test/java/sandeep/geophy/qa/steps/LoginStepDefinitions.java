@@ -48,4 +48,10 @@ public class LoginStepDefinitions {
         LoginPage page = new LoginPage();
         page.clickForgotPasswordLink();
     }
+
+    @When("the Signup link is clicked")
+    public void theSignupLinkIsClicked() {
+        LoginPage page = new LoginPage();
+        page.clickSignupLink();
+    }
 }

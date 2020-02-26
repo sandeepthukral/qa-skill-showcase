@@ -16,7 +16,7 @@ public class LoginPage{
             signupLink=$("a[href='https://evra.geophy.com/signup']");
 
     public void visit() {
-        open("https://evra.geophy.com/login");
+        open("login");
     }
 
     public void enterUsername(String username)  {

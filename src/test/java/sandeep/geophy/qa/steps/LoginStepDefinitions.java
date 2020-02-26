@@ -4,12 +4,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.LoginPage;
 import sandeep.geophy.qa.pages.SearchPage;
 
 import static org.junit.Assert.assertTrue;
 
-public class LoginStepDefinitions {
+public class LoginStepDefinitions extends TestBase {
     @Given("an open browser with login page")
     public void anOpenBrowserWithLoginPage() {
         LoginPage page = new LoginPage();
@@ -19,15 +20,13 @@ public class LoginStepDefinitions {
     @When("I enter a corect username")
     public void iEnterACorectUsername() {
         LoginPage page = new LoginPage();
-        //TODO move username to a config file
-        page.enterUsername("qaskillschallenge@geophy.com");
+        page.enterUsername(prop.getProperty("username", "blank"));
     }
 
     @And("I enter a correct password")
     public void iEnterACorrectPassword() {
         LoginPage page = new LoginPage();
-        //TODO move password to a config file
-        page.enterPassword("qaskillschallenge@geophy.com");
+        page.enterPassword(prop.getProperty("password", "blank"));
     }
 
     @Then("I should be logged in")

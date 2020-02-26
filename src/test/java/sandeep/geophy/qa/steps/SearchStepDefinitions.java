@@ -48,7 +48,7 @@ public class SearchStepDefinitions {
     @Then("I should see the report page")
     public void iShouldSeeTheReportPage() {
         ReportPage page = new ReportPage();
-        org.junit.Assert.assertTrue(page.isReportLoaded());
+        org.junit.Assert.assertTrue(page.isPageLoaded());
     }
 
     @And("the valuation should be the static value")

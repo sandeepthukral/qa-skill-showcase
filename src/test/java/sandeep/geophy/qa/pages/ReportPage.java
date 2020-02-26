@@ -1,14 +1,15 @@
 package sandeep.geophy.qa.pages;
 
 import com.codeborne.selenide.Condition;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
 public class ReportPage {
-    public boolean isReportLoaded(){
-        $("section.report-section").waitUntil(Condition.appear, 10000);
-        return $("section.report-section").exists();
+    public boolean isPageLoaded(){
+        // Using waitUntil because report generation can take longer than normal
+        return $("section.report-section")
+                .waitUntil(Condition.appear, 10000)
+                .exists();
     }
 
     public String getValuation() {

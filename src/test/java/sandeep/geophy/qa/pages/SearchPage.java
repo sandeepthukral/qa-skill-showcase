@@ -8,13 +8,13 @@ import static com.codeborne.selenide.Selenide.$;
 public class SearchPage {
 
     public boolean isPageLoaded() {
-        $(By.cssSelector("form[action='https://evra.geophy.com/search']")).waitUntil(Condition.appear, 10000);
-        return $(By.cssSelector("form[action='https://evra.geophy.com/search']")).exists();
+        return $("form[action='https://evra.geophy.com/search']")
+                .shouldBe(Condition.visible)
+                .exists();
     }
 
     public void enterAddress() {
         $(By.id("address_input")).val("555 N. College Avenue, Tempe, AZ, 85281");
-        $(".pac-container > .pac-item", 0).waitUntil(Condition.visible, 2000);
         $(".pac-container > .pac-item", 0).click();
     }
 

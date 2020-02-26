@@ -10,5 +10,5 @@ Feature: Geophy Login screen
   Scenario: password recovery form is displayed when forgot password link is clicked
     Given an open browser with login page
     When the Forgot Password link is clicked
-    Then the password reset page should be visible
+    Then the password reset page should be displayed
     And it should have an email address field

@@ -48,16 +48,4 @@ public class LoginStepDefinitions {
         LoginPage page = new LoginPage();
         page.clickForgotPasswordLink();
     }
-
-    @Then("the password reset page should be visible")
-    public void thePasswordResetPageShouldBeVisible() {
-        PasswordResetPage page = new PasswordResetPage();
-        assertTrue(page.isPageLoaded());
-    }
-
-    @And("it should have an email address field")
-    public void itShouldHaveAnEmailAddressField() {
-        PasswordResetPage page = new PasswordResetPage();
-        assertTrue(page.isEmailFieldDisplayed());
-    }
 }

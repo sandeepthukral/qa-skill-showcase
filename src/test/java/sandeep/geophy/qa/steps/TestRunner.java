@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/sandeep/geophy/qa/test/resources",
         glue = "",
-        plugin = {"de.monochromata.cucumber.report.PrettyReports:target/cucumber"},
+        plugin = {"de.monochromata.cucumber.report.PrettyReports:test-reports/cucumber"},
         strict = true
         )
 public class TestRunner {

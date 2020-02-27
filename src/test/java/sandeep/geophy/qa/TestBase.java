@@ -14,9 +14,11 @@ public class TestBase {
 
     public TestBase(){
         try{
-            prop = new Properties();
-            FileInputStream fis = new FileInputStream("src/test/java/sandeep/geophy/qa/config.properties");
-            prop.load(fis);
+            if (null == prop) {
+                prop = new Properties();
+                FileInputStream fis = new FileInputStream("src/test/java/sandeep/geophy/qa/config.properties");
+                prop.load(fis);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

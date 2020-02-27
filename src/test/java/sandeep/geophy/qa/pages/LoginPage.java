@@ -15,8 +15,9 @@ public class LoginPage{
             forgotPasswordLink=$("a[href='https://evra.geophy.com/password/reset']"),
             signupLink=$("a[href='https://evra.geophy.com/signup']");
 
-    public void visit() {
+    public LoginPage visit() {
         open("login");
+        return this;
     }
 
     public void enterUsername(String username)  {

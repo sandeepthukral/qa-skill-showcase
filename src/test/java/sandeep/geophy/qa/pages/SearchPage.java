@@ -23,25 +23,30 @@ public class SearchPage {
         return pageForm.shouldBe(Condition.visible).exists();
     }
 
-    public void enterAddress(String address) {
+    public SearchPage enterAddress(String address) {
         addressInput.val(address);
         firstAddressSuggested.click();
+        return this;
     }
 
-    public void enterNOI(String noi) {
+    public SearchPage enterNOI(String noi) {
         noiInput.val(noi);
+        return this;
     }
 
-    public void enterNumberOfUnits(String no_of_units) {
+    public SearchPage enterNumberOfUnits(String no_of_units) {
         numberOfUnitsInput.val(no_of_units);
+        return this;
     }
 
-    public void enterYearOfConstruction(String year) {
+    public SearchPage enterYearOfConstruction(String year) {
         yearBuiltInput.val(year);
+        return this;
     }
 
-    public void enterPercentageOccupancy(String percentage) {
+    public SearchPage enterPercentageOccupancy(String percentage) {
         occupancyInput.val(percentage);
+        return this;
     }
 
     public void submitForm() {

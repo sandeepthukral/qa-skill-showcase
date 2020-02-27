@@ -11,22 +11,22 @@ import sandeep.geophy.qa.pages.SearchPage;
 import static org.junit.Assert.assertTrue;
 
 public class LoginStepDefinitions extends TestBase {
+
+    LoginPage loginPage = new LoginPage();
+
     @Given("an open browser with login page")
     public void anOpenBrowserWithLoginPage() {
-        LoginPage page = new LoginPage();
-        page.visit();
+        loginPage.visit();
     }
 
-    @When("I enter a corect username")
+    @When("I enter a correct username")
     public void iEnterACorectUsername() {
-        LoginPage page = new LoginPage();
-        page.enterUsername(prop.getProperty("username", "blank"));
+        loginPage.enterUsername(prop.getProperty("username", "blank"));
     }
 
     @And("I enter a correct password")
     public void iEnterACorrectPassword() {
-        LoginPage page = new LoginPage();
-        page.enterPassword(prop.getProperty("password", "blank"));
+        loginPage.enterPassword(prop.getProperty("password", "blank"));
     }
 
     @Then("I should be logged in")
@@ -37,19 +37,25 @@ public class LoginStepDefinitions extends TestBase {
 
     @And("I submit the form")
     public void iSubmitTheForm() {
-        LoginPage page = new LoginPage();
-        page.submitForm();
+        loginPage.submitForm();
     }
 
     @When("the Forgot Password link is clicked")
     public void theForgotPasswordLinkIsClicked() {
-        LoginPage page = new LoginPage();
-        page.clickForgotPasswordLink();
+        loginPage.clickForgotPasswordLink();
     }
 
     @When("the Signup link is clicked")
     public void theSignupLinkIsClicked() {
-        LoginPage page = new LoginPage();
-        page.clickSignupLink();
+        loginPage.clickSignupLink();
+    }
+
+    @Given("I am logged in to Evra")
+    public void iAmLoggedInToEvra() {
+        loginPage.visit()
+                .login(
+                        prop.getProperty("username", "blank"),
+                        prop.getProperty("password", "blank")
+                );
     }
 }

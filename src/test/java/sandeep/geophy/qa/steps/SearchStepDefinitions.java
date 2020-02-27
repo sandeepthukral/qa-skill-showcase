@@ -1,23 +1,17 @@
 package sandeep.geophy.qa.steps;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import sandeep.geophy.qa.TestBase;
-import sandeep.geophy.qa.pages.LoginPage;
 import sandeep.geophy.qa.pages.ReportPage;
 import sandeep.geophy.qa.pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
 public class SearchStepDefinitions extends TestBase {
-    @Given("I am logged in to Evra")
-    public void iAmLoggedInToEvra() {
-        LoginPage page = new LoginPage();
-        page.visit();
-        page.login("qaskillschallenge@geophy.com", "qaskillschallenge@geophy.com");
-    }
+
+    SearchPage searchPage = new SearchPage();
 
     @And("I am on the Evra search page")
     public void iAmOnTheEvraSearchPage() {
@@ -27,11 +21,10 @@ public class SearchStepDefinitions extends TestBase {
 
     @When("I enter all required fields with static data")
     public void iEnterAllRequiredFieldsWithStaticData() {
-        SearchPage page = new SearchPage();
-        page.enterAddress(prop.getProperty("default_data.search.address"));
-        page.enterNOI(prop.getProperty("default_data.search.noi"));
-        page.enterNumberOfUnits(prop.getProperty("default_data.search.no_of_units"));
-        page.enterYearOfConstruction(prop.getProperty("default_data.search.year_built_input"));
+        searchPage.enterAddress(prop.getProperty("default_data.search.address"))
+                .enterNOI(prop.getProperty("default_data.search.noi"))
+                .enterNumberOfUnits(prop.getProperty("default_data.search.no_of_units"))
+                .enterYearOfConstruction(prop.getProperty("default_data.search.year_built_input"));
     }
 
     @And("I enter an occupancy of {word} percent")

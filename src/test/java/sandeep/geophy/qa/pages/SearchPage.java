@@ -23,21 +23,21 @@ public class SearchPage {
         return pageForm.shouldBe(Condition.visible).exists();
     }
 
-    public void enterAddress() {
-        addressInput.val("555 N. College Avenue, Tempe, AZ, 85281");
+    public void enterAddress(String address) {
+        addressInput.val(address);
         firstAddressSuggested.click();
     }
 
-    public void enterNOI() {
-        noiInput.val("2000000");
+    public void enterNOI(String noi) {
+        noiInput.val(noi);
     }
 
-    public void enterNumberOfUnits() {
-        numberOfUnitsInput.val("200");
+    public void enterNumberOfUnits(String no_of_units) {
+        numberOfUnitsInput.val(no_of_units);
     }
 
-    public void enterYearOfConstruction() {
-        yearBuiltInput.val("2000");
+    public void enterYearOfConstruction(String year) {
+        yearBuiltInput.val(year);
     }
 
     public void enterPercentageOccupancy(String percentage) {

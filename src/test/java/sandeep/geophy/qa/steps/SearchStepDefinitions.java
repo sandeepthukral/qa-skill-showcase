@@ -4,13 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.LoginPage;
 import sandeep.geophy.qa.pages.ReportPage;
 import sandeep.geophy.qa.pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class SearchStepDefinitions {
+public class SearchStepDefinitions extends TestBase {
     @Given("I am logged in to Evra")
     public void iAmLoggedInToEvra() {
         LoginPage page = new LoginPage();
@@ -27,10 +28,10 @@ public class SearchStepDefinitions {
     @When("I enter all required fields with static data")
     public void iEnterAllRequiredFieldsWithStaticData() {
         SearchPage page = new SearchPage();
-        page.enterAddress();
-        page.enterNOI();
-        page.enterNumberOfUnits();
-        page.enterYearOfConstruction();
+        page.enterAddress(prop.getProperty("default_data.search.address"));
+        page.enterNOI(prop.getProperty("default_data.search.noi"));
+        page.enterNumberOfUnits(prop.getProperty("default_data.search.no_of_units"));
+        page.enterYearOfConstruction(prop.getProperty("default_data.search.year_built_input"));
     }
 
     @And("I enter an occupancy of {word} percent")
@@ -53,14 +54,14 @@ public class SearchStepDefinitions {
 
     @And("the valuation should be the static value")
     public void theValuationShouldBeTheStaticValue() {
-        String expectedValuation = "35626200";
+        String expectedValuation = prop.getProperty("default_data.search.expected.valuation");
         ReportPage page = new ReportPage();
         assert expectedValuation.equals(page.getValuation());
     }
 
     @And("the cap rate should be the default value")
     public void theCapRateShouldBeTheDefaultValue() {
-        String expectedCapRate = "5.61%";
+        String expectedCapRate = prop.getProperty("default_data.search.expected.cap_rate");
         ReportPage page = new ReportPage();
         assert expectedCapRate.equals(page.getCapRate());
     }

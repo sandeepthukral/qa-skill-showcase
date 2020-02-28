@@ -10,6 +10,7 @@ public class TestBase {
 
     public static Properties prop;
     protected static final boolean REMOTE_DRIVER = Boolean.parseBoolean(System.getProperty("REMOTE_DRIVER", "false"));
+    protected static final String BROWSER = System.getProperty("BROWSER", "chrome");
 
     //TODO instantiate an object that reads data from the props file. Not using props.getPRoperty() everywhere
 
@@ -25,7 +26,7 @@ public class TestBase {
         }
 
         Configuration.startMaximized = false;
-        Configuration.browser = prop.getProperty("browser", "chrome");
+        Configuration.browser = BROWSER;
         Configuration.browserSize = prop.getProperty("browser.size", "1280x1024");
         Configuration.baseUrl = prop.getProperty("base_url");
         if (REMOTE_DRIVER) {

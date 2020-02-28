@@ -12,7 +12,8 @@ repositories {
 test{
     useJUnitPlatform()
     systemProperties = [
-            REMOTE_DRIVER: System.getProperty('REMOTE_DRIVER', 'false')
+            REMOTE_DRIVER: System.getProperty('REMOTE_DRIVER', 'false'),
+            BROWSER: System.getProperty('BROWSER', 'chrome')
     ]
 }
 

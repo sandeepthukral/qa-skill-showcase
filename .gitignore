@@ -1,5 +1,6 @@
 # Project
-target/
+test-reports/
+*.DS_Store
 
 # Gradle
 .gradle/*
@@ -8,7 +9,7 @@ build/
 .gradle
 .gradletasknamecache
 gradle-app.setting
-!gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
 
 # Java
 *.class

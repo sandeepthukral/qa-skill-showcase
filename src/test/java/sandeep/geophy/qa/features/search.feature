@@ -1,7 +1,6 @@
 Feature: Search page and results
 
   Scenario: user should be able to get results for static data
-
     Given I am logged in to Evra
     And I am on the Evra search page
     When I enter all required fields with static data

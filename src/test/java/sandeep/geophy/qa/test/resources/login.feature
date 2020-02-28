@@ -17,3 +17,8 @@ Feature: Geophy Login screen
     Given an open browser with login page
     When the Signup link is clicked
     Then the signup page should be displayed
+
+  Scenario: user can logout using the logout link
+    Given I am logged in to Evra
+    When I click the logout link
+    Then I should be at the login page

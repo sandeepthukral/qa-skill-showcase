@@ -16,7 +16,8 @@ public class SearchPage {
             numberOfUnitsInput=$(By.name("number_of_units")),
             yearBuiltInput=$(By.name("year_built")),
             occupancyInput=$(By.name("occupancy")),
-            submitButton=$("button[type='submit']");
+            submitButton=$("button[type='submit']"),
+            logoutLink=$("a[href='https://evra.geophy.com/logout'");
 
 
     public boolean isPageLoaded() {
@@ -26,6 +27,11 @@ public class SearchPage {
     public SearchPage enterAddress(String address) {
         addressInput.val(address);
         firstAddressSuggested.click();
+        return this;
+    }
+
+    public SearchPage enterAddressWithoutSelectingSuggestion(String address) {
+        addressInput.val(address);
         return this;
     }
 
@@ -51,5 +57,14 @@ public class SearchPage {
 
     public void submitForm() {
         submitButton.click();
+    }
+
+    public boolean isSubmitButtonEnabled() {
+        String classes = submitButton.getAttribute("class");
+        return !classes.contains("button--disabled");
+    }
+
+    public void logout() {
+        logoutLink.click();
     }
 }

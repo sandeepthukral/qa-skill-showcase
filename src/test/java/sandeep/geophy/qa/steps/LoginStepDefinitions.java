@@ -58,4 +58,9 @@ public class LoginStepDefinitions extends TestBase {
                         prop.getProperty("password", "blank")
                 );
     }
+
+    @Then("I should be at the login page")
+    public void iAmLoggedOut() {
+        assertTrue("User did not land at the Login Page", loginPage.isPageDisplayed());
+    }
 }

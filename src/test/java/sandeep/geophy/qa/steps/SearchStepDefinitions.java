@@ -3,11 +3,13 @@ package sandeep.geophy.qa.steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.ReportPage;
 import sandeep.geophy.qa.pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class SearchStepDefinitions extends TestBase {
 
@@ -29,14 +31,12 @@ public class SearchStepDefinitions extends TestBase {
 
     @And("I enter an occupancy of {word} percent")
     public void iEnterAnOccupancyOfPercent(String percentage) {
-        SearchPage page = new SearchPage();
-        page.enterPercentageOccupancy(percentage);
+        searchPage.enterPercentageOccupancy(percentage);
     }
 
-    @And("I click the run validation")
-    public void iClickTheRunValidation() {
-        SearchPage page = new SearchPage();
-        page.submitForm();
+    @And("I run valuation")
+    public void iClickTheRunValuation() {
+        searchPage.submitForm();
     }
 
     @Then("I should see the report page")
@@ -58,4 +58,25 @@ public class SearchStepDefinitions extends TestBase {
         ReportPage page = new ReportPage();
         assert expectedCapRate.equals(page.getCapRate());
     }
+
+    @When("I enter all required fields with static data without validating address")
+    public void iEnterAllRequiredFieldsWithStaticDataWithoutValidatingAddress() {
+        searchPage.enterAddressWithoutSelectingSuggestion(prop.getProperty("default_data.search.address"))
+                .enterNOI(prop.getProperty("default_data.search.noi"))
+                .enterNumberOfUnits(prop.getProperty("default_data.search.no_of_units"))
+                .enterYearOfConstruction(prop.getProperty("default_data.search.year_built_input"));
+    }
+
+    @Then("the Run Valuation button should be disabled")
+    public void theRunValuationButtonShouldBeDisabled() {
+        Assert.assertFalse("Run Valuation button is enabled when it should not be",
+                searchPage.isSubmitButtonEnabled());
+        sleep(3000);
+    }
+
+    @When("I click the logout link")
+    public void iClickTheLogoutLink() {
+        searchPage.logout();
+    }
+
 }

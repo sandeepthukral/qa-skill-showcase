@@ -1,5 +1,6 @@
 package sandeep.geophy.qa.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
@@ -13,7 +14,8 @@ public class LoginPage{
             password=$(By.id("password")),
             submitButton=$("button[type='submit']"),
             forgotPasswordLink=$("a[href='https://evra.geophy.com/password/reset']"),
-            signupLink=$("a[href='https://evra.geophy.com/signup']");
+            signupLink=$("a[href='https://evra.geophy.com/signup']"),
+            form=$("#form_login");
 
     public LoginPage visit() {
         open("login");
@@ -45,5 +47,11 @@ public class LoginPage{
 
     public void clickSignupLink() {
         signupLink.click();
+    }
+
+    public boolean isPageDisplayed() {
+        //TODO not very happy with this. Need to find an alternative
+        form.shouldBe(Condition.visible);
+        return true;
     }
 }

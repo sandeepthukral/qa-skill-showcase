@@ -108,8 +108,8 @@ public class SearchStepDefinitions extends TestBase {
         Assert.assertTrue("The first report is not saved", searchPage.isFirstRecentSearchSaved());
     }
 
-    @And("I run evaluation with static data")
-    public void iRunEvaluationWithStaticData() {
+    @And("I run valuation with static data")
+    public void iRunValuationWithStaticData() {
         this.iEnterAllRequiredFieldsWithStaticData();
         this.iClickTheRunValuation();
         this.iShouldSeeTheReportPage();

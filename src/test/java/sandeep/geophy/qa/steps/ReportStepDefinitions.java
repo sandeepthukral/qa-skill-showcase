@@ -85,4 +85,21 @@ public class ReportStepDefinitions extends TestBase {
     public void theStaticHeaderShouldBeVisible() {
         Assert.assertTrue("Static header is not displayed", reportPage.isStaticHeaderDisplayed());
     }
+
+    @When("I scroll the sticky header into view")
+    public void iScrollTheStickyHeaderIntoView() {
+        reportPage.scrollToNeighbouthoodSection();
+        Assert.assertTrue("Static header is not displayed", reportPage.isStaticHeaderDisplayed());
+    }
+
+    @And("I save the report from the sticky header")
+    public void iSaveTheReportFromTheStickyHeader() {
+        reportPage.saveReprotFromStickyHeader();
+    }
+
+    @When("I click the CSV download link from the sticky header")
+    public void iClickTheCSVDownloadLinkFromTheStickyHeader() {
+        File csvFile = reportPage.clickDownloadCsvLinkFromStickyHeader();
+        context.extra.put("csvFile", csvFile);
+    }
 }

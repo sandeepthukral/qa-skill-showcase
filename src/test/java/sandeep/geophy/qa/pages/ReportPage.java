@@ -28,7 +28,9 @@ public class ReportPage extends TestBase {
             neighbourhoodSection=$("section.report-section", 3),
             saveButton=propertySection.find("a", 0),
             saveButtonIcon=saveButton.find("i"),
-            sticlyHeader=$("header#sticky-header")
+            sticlyHeader=$("header#sticky-header"),
+            stickyHeaderSaveButton=sticlyHeader.find("a", 3),
+            downlaodCsvLinkStickyHeader=sticlyHeader.find("a", 4)
     ;
 
     public boolean isPageLoaded(){
@@ -103,6 +105,7 @@ public class ReportPage extends TestBase {
     }
 
     public boolean isReprotSaved() {
+        saveButtonIcon.scrollIntoView(false);
         String classes = saveButtonIcon.getAttribute("class");
         return classes.contains("fas");
     }
@@ -119,5 +122,18 @@ public class ReportPage extends TestBase {
             return false;
         }
         return true;
+    }
+
+    public void saveReprotFromStickyHeader() {
+        stickyHeaderSaveButton.click();
+    }
+
+    public File clickDownloadCsvLinkFromStickyHeader() {
+        try {
+            return downlaodCsvLinkStickyHeader.download();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

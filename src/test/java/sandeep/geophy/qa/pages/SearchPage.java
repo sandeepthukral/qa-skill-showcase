@@ -4,6 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static com.codeborne.selenide.Selenide.$;
 
 public class SearchPage {
@@ -17,7 +20,11 @@ public class SearchPage {
             yearBuiltInput=$(By.name("year_built")),
             occupancyInput=$(By.name("occupancy")),
             submitButton=$("button[type='submit']"),
-            logoutLink=$("a[href='https://evra.geophy.com/logout'");
+            logoutLink=$("a[href='https://evra.geophy.com/logout'"),
+            firstRecentSearchSaveLink=$("table#tblValuationHistory tr", 1).find("a", 0),
+            firstRecentSearchAddressLink=$("table#tblValuationHistory tr", 1).find("a", 1),
+            getFirstRecentSearchSavedIcon=$("table#tblValuationHistory tr", 1).find("a", 0).find("i"),
+            sampleReportLink=$("#introjsSampleReport>a");
 
 
     public boolean isPageLoaded() {
@@ -66,5 +73,34 @@ public class SearchPage {
 
     public void logout() {
         logoutLink.click();
+    }
+
+    public Map<String, String> getRecentSearchInformation() {
+        HashMap<String, String> recentSearchInfo = new HashMap<String, String>();
+        SelenideElement row = $("table#tblValuationHistory tr", 1);
+        String address = row.find("td", 2).innerText().strip();
+        String numberOfUnits = row.find("td", 5).innerText().strip();
+        String yearConstruction = row.find("td", 4).innerText().strip();
+        recentSearchInfo.put("address", address);
+        recentSearchInfo.put("numberOfUnits", numberOfUnits);
+        recentSearchInfo.put("yearOfConstruction", yearConstruction);
+        return recentSearchInfo;
+    }
+
+    public void clickFirstRecentSearch() {
+        firstRecentSearchAddressLink.click();
+    }
+
+    public void saveFirstRecentSearch() {
+        firstRecentSearchSaveLink.click();
+    }
+
+    public boolean isFirstRecentSearchSaved() {
+        String classes = getFirstRecentSearchSavedIcon.getAttribute("class");
+        return classes.contains("fas");
+    }
+
+    public void clickSampleReportLink() {
+        sampleReportLink.click();
     }
 }

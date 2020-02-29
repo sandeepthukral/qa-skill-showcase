@@ -11,7 +11,10 @@ public class ReportPage {
             reportSection=$("section.report-section"),
             transactionPrice=$("h1[data-transaction-price]"),
             dataCapRate=$("h1[data-cap-rate]"),
-            confidneceIndicator=$("#confidenceIndicator > span > div");
+            confidneceIndicator=$("#confidenceIndicator > span > div"),
+            address=$("section.report-section h4"),
+            numberOfUnits=$("section.report-section table tr", 0).find("td", 1),
+            yearOfConstrution=$("section.report-section table tr", 1).find("td", 1);
 
     public boolean isPageLoaded(){
         // Using waitUntil because report generation can take longer than normal
@@ -37,4 +40,17 @@ public class ReportPage {
     public boolean isConfidenceIndicatorGreen() {
         return confidneceIndicator.getAttribute("class").contains("bg-green");
     }
+
+    public String getAddress(){
+        return address.innerText();
+    }
+
+    public String getYearOfConstruction() {
+        return yearOfConstrution.innerText();
+    }
+
+    public String getNumberOfUnits() {
+        return numberOfUnits.innerText();
+    }
+
 }

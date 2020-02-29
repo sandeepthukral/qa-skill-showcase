@@ -91,4 +91,32 @@ public class SearchStepDefinitions extends TestBase {
         ReportPage page = new ReportPage();
         Assert.assertTrue("Confidence indicator is not green", page.isConfidenceIndicatorGreen());
     }
+
+    @When("I click on the first report in recent searches list")
+    public void iClickOnTheFirstReportInRecentSearchesList() {
+        context.extra.put("recentSearchDetails", searchPage.getRecentSearchInformation());
+        searchPage.clickFirstRecentSearch();
+    }
+
+    @When("I save the first report in recent searches list")
+    public void iSaveTheFirstReportInRecentSearchesList() {
+        searchPage.saveFirstRecentSearch();
+    }
+
+    @Then("the first report in the recent searches should be saved")
+    public void theFirstReportInTheRecentSearchesIsSaved() {
+        Assert.assertTrue("The first report is not saved", searchPage.isFirstRecentSearchSaved());
+    }
+
+    @And("I run evaluation with static data")
+    public void iRunEvaluationWithStaticData() {
+        this.iEnterAllRequiredFieldsWithStaticData();
+        this.iClickTheRunValuation();
+        this.iShouldSeeTheReportPage();
+    }
+
+    @When("I click on the sample report")
+    public void iClickOnTheSampleReport() {
+        searchPage.clickSampleReportLink();
+    }
 }

@@ -16,3 +16,22 @@ Feature: Search page and results
     And I am on the Evra search page
     When I enter all required fields with static data without validating address
     Then the Run Valuation button should be disabled
+
+  Scenario: user should be able to click on the first report in recent searches list
+    Given I am logged in to Evra
+    And I am on the Evra search page
+    When I click on the first report in recent searches list
+    Then the report is displayed
+
+  Scenario: user should be able to save a report
+    Given I am logged in to Evra
+    And I run evaluation with static data
+    When I am on the Evra search page
+    And I save the first report in recent searches list
+    Then the first report in the recent searches should be saved
+
+  Scenario: user can view sample report
+    Given I am logged in to Evra
+    And I am on the Evra search page
+    When I click on the sample report
+    Then the sample report should be displayed in a new tab

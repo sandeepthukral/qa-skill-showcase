@@ -12,11 +12,11 @@ public class PasswordResetStepDefinitions {
 
     @Then("the password reset page should be displayed")
     public void thePasswordResetPageShouldBeVisible() {
-        assertTrue(page.isPageLoaded());
+        assertTrue("Password Reset Page is not displayed", page.isPageLoaded());
     }
 
     @And("it should have an email address field")
     public void itShouldHaveAnEmailAddressField() {
-        assertTrue(page.isEmailInputDisplayed());
+        assertTrue("Email input was not displayed", page.isEmailInputDisplayed());
     }
 }

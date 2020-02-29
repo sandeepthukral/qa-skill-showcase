@@ -42,21 +42,21 @@ public class SearchStepDefinitions extends TestBase {
     @Then("I should see the report page")
     public void iShouldSeeTheReportPage() {
         ReportPage page = new ReportPage();
-        org.junit.Assert.assertTrue(page.isPageLoaded());
+        Assert.assertTrue("Report page was not loaded", page.isPageLoaded());
     }
 
     @And("the valuation should be the static value")
     public void theValuationShouldBeTheStaticValue() {
         String expectedValuation = prop.getProperty("default_data.search.expected.valuation");
         ReportPage page = new ReportPage();
-        assert expectedValuation.equals(page.getValuation());
+        Assert.assertTrue("Valuation displayed did not match", expectedValuation.equals(page.getValuation()));
     }
 
     @And("the cap rate should be the default value")
     public void theCapRateShouldBeTheDefaultValue() {
         String expectedCapRate = prop.getProperty("default_data.search.expected.cap_rate");
         ReportPage page = new ReportPage();
-        assert expectedCapRate.equals(page.getCapRate());
+        Assert.assertTrue("Cap rate displayed did not match", expectedCapRate.equals(page.getCapRate()));
     }
 
     @When("I enter all required fields with static data without validating address")
@@ -79,4 +79,9 @@ public class SearchStepDefinitions extends TestBase {
         searchPage.logout();
     }
 
+    @And("the confidence indicator should be green")
+    public void theConfidenceIndicatorShouldBeGreen() {
+        ReportPage page = new ReportPage();
+        Assert.assertTrue("Confidence indicator is not green", page.isConfidenceIndicatorGreen());
+    }
 }

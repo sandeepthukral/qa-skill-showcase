@@ -32,7 +32,7 @@ public class LoginStepDefinitions extends TestBase {
     @Then("I should be logged in")
     public void iShouldBeLoggedIn() {
         SearchPage page = new SearchPage();
-        assertTrue(page.isPageLoaded());
+        assertTrue("Login page is not displayed", page.isPageLoaded());
     }
 
     @And("I submit the form")

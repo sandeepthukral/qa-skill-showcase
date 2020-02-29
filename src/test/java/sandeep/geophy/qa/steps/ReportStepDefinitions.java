@@ -57,4 +57,32 @@ public class ReportStepDefinitions extends TestBase {
     public void theFileShouldBeDownloaded() {
         Assert.assertNotNull(context.extra.get("csvFile"));
     }
+
+    @Then("all important sections of the report should be displayed")
+    public void allImportantSectionsOfTheReportShouldBeDisplayed() {
+        Assert.assertTrue(reportPage.isSectionTransactionPriceDisplayed());
+        Assert.assertTrue(reportPage.isSectionPropertyDisplayed());
+        Assert.assertTrue(reportPage.isSectionNeighbourhoodDisplayed());
+        Assert.assertTrue(reportPage.isSectionValueDriversDisplayed());
+    }
+
+    @When("I save the report")
+    public void iSaveTheReport() {
+        reportPage.saveReport();
+    }
+
+    @Then("the report should be saved")
+    public void theReportShouldBeSaved() {
+        Assert.assertTrue("Report is not saved", reportPage.isReprotSaved());
+    }
+
+    @When("I scroll down")
+    public void iScrollDown() {
+        reportPage.scrollToNeighbouthoodSection();
+    }
+
+    @Then("the static header should be visible")
+    public void theStaticHeaderShouldBeVisible() {
+        Assert.assertTrue("Static header is not displayed", reportPage.isStaticHeaderDisplayed());
+    }
 }

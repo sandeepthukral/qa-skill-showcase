@@ -2,10 +2,16 @@ package sandeep.geophy.qa.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import sandeep.geophy.qa.TestBase;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import static com.codeborne.selenide.Selenide.open;
 
 import static com.codeborne.selenide.Selenide.$;
 
-public class ReportPage {
+public class ReportPage extends TestBase {
 
     SelenideElement
             reportSection=$("section.report-section"),
@@ -14,7 +20,8 @@ public class ReportPage {
             confidneceIndicator=$("#confidenceIndicator > span > div"),
             address=$("section.report-section h4"),
             numberOfUnits=$("section.report-section table tr", 0).find("td", 1),
-            yearOfConstrution=$("section.report-section table tr", 1).find("td", 1);
+            yearOfConstrution=$("section.report-section table tr", 1).find("td", 1),
+            downlaodCsvLink=$("#downloadCSVLink");
 
     public boolean isPageLoaded(){
         // Using waitUntil because report generation can take longer than normal
@@ -53,4 +60,17 @@ public class ReportPage {
         return numberOfUnits.innerText();
     }
 
+    public File clickDownloadCsvLink() {
+        try {
+            return downlaodCsvLink.download();
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public void visitSampleReport() {
+        String url = config.get("sample_report_url");
+        open(url);
+    }
 }

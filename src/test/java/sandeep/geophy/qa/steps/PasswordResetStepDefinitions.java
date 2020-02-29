@@ -2,12 +2,13 @@ package sandeep.geophy.qa.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.PasswordResetPage;
 import sandeep.geophy.qa.utils.Context;
 
 import static org.junit.Assert.assertTrue;
 
-public class PasswordResetStepDefinitions {
+public class PasswordResetStepDefinitions extends TestBase {
 
     private Context context;
 

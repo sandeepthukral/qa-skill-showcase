@@ -2,10 +2,18 @@ package sandeep.geophy.qa.steps;
 
 import io.cucumber.java.en.Then;
 import sandeep.geophy.qa.pages.SignupPage;
+import sandeep.geophy.qa.utils.Context;
 
 import static org.junit.Assert.assertTrue;
 
 public class SignupStepDefinitions {
+
+    private Context context;
+
+    public SignupStepDefinitions(Context context){
+        this.context = context;
+    }
+
     @Then("the signup page should be displayed")
     public void theSignupPageShouldBeDisplayed() {
         SignupPage page = new SignupPage();

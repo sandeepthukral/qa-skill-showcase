@@ -7,11 +7,18 @@ import org.junit.Assert;
 import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.ReportPage;
 import sandeep.geophy.qa.pages.SearchPage;
+import sandeep.geophy.qa.utils.Context;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class SearchStepDefinitions extends TestBase {
+
+    private Context context;
+
+    public SearchStepDefinitions(Context context){
+        this.context = context;
+    }
 
     SearchPage searchPage = new SearchPage();
 

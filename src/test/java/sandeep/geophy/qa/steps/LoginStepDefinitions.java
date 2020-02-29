@@ -7,10 +7,17 @@ import io.cucumber.java.en.When;
 import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.LoginPage;
 import sandeep.geophy.qa.pages.SearchPage;
+import sandeep.geophy.qa.utils.Context;
 
 import static org.junit.Assert.assertTrue;
 
 public class LoginStepDefinitions extends TestBase {
+
+    private Context context;
+
+    public LoginStepDefinitions(Context context){
+        this.context = context;
+    }
 
     LoginPage loginPage = new LoginPage();
 

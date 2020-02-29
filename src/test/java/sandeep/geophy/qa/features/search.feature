@@ -25,7 +25,7 @@ Feature: Search page and results
 
   Scenario: user should be able to save a report
     Given I am logged in to Evra
-    And I run evaluation with static data
+    And I run valuation with static data
     When I am on the Evra search page
     And I save the first report in recent searches list
     Then the first report in the recent searches should be saved

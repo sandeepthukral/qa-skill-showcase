@@ -1,6 +1,7 @@
 package sandeep.geophy.qa;
 
 import com.codeborne.selenide.Configuration;
+import sandeep.geophy.qa.utils.Context;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,8 +15,12 @@ public class TestBase {
     protected static final boolean REMOTE_DRIVER = Boolean.parseBoolean(System.getProperty("REMOTE_DRIVER", "false"));
     protected static final String BROWSER = System.getProperty("BROWSER", "chrome");
     public static Map<String, String> config;
+    protected Context context;
 
-    //TODO instantiate an object that reads data from the props file. Not using props.getPRoperty() everywhere
+    public TestBase(Context context){
+        this();
+        this.context = context;
+    }
 
     public TestBase(){
         try{
@@ -36,8 +41,8 @@ public class TestBase {
 
         Configuration.startMaximized = false;
         Configuration.browser = BROWSER;
-        Configuration.browserSize = prop.getProperty("browser.size", "1280x1024");
-        Configuration.baseUrl = prop.getProperty("base_url");
+        Configuration.browserSize = config.get("browser.size");
+        Configuration.baseUrl = config.get("base_url");
         if (REMOTE_DRIVER) {
             Configuration.remote = "http://localhost:4444/wd/hub";
             Configuration.driverManagerEnabled = false;

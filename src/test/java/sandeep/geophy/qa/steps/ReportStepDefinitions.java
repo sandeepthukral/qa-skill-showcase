@@ -15,10 +15,8 @@ import static com.codeborne.selenide.Selenide.switchTo;
 
 public class ReportStepDefinitions extends TestBase {
 
-    private Context context;
-
     public ReportStepDefinitions(Context context){
-        this.context = context;
+        super(context);
     }
 
     ReportPage reportPage = new ReportPage();

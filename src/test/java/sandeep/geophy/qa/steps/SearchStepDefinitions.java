@@ -14,10 +14,8 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class SearchStepDefinitions extends TestBase {
 
-    private Context context;
-
     public SearchStepDefinitions(Context context){
-        this.context = context;
+        super(context);
     }
 
     SearchPage searchPage = new SearchPage();
@@ -30,10 +28,10 @@ public class SearchStepDefinitions extends TestBase {
 
     @When("I enter all required fields with static data")
     public void iEnterAllRequiredFieldsWithStaticData() {
-        searchPage.enterAddress(prop.getProperty("default_data.search.address"))
-                .enterNOI(prop.getProperty("default_data.search.noi"))
-                .enterNumberOfUnits(prop.getProperty("default_data.search.no_of_units"))
-                .enterYearOfConstruction(prop.getProperty("default_data.search.year_built_input"));
+        searchPage.enterAddress(config.get("default_data.search.address"))
+                .enterNOI(config.get("default_data.search.noi"))
+                .enterNumberOfUnits(config.get("default_data.search.no_of_units"))
+                .enterYearOfConstruction(config.get("default_data.search.year_built_input"));
     }
 
     @And("I enter an occupancy of {word} percent")
@@ -54,24 +52,24 @@ public class SearchStepDefinitions extends TestBase {
 
     @And("the valuation should be the static value")
     public void theValuationShouldBeTheStaticValue() {
-        String expectedValuation = prop.getProperty("default_data.search.expected.valuation");
+        String expectedValuation = config.get("default_data.search.expected.valuation");
         ReportPage page = new ReportPage();
         Assert.assertTrue("Valuation displayed did not match", expectedValuation.equals(page.getValuation()));
     }
 
     @And("the cap rate should be the default value")
     public void theCapRateShouldBeTheDefaultValue() {
-        String expectedCapRate = prop.getProperty("default_data.search.expected.cap_rate");
+        String expectedCapRate = config.get("default_data.search.expected.cap_rate");
         ReportPage page = new ReportPage();
         Assert.assertTrue("Cap rate displayed did not match", expectedCapRate.equals(page.getCapRate()));
     }
 
     @When("I enter all required fields with static data without validating address")
     public void iEnterAllRequiredFieldsWithStaticDataWithoutValidatingAddress() {
-        searchPage.enterAddressWithoutSelectingSuggestion(prop.getProperty("default_data.search.address"))
-                .enterNOI(prop.getProperty("default_data.search.noi"))
-                .enterNumberOfUnits(prop.getProperty("default_data.search.no_of_units"))
-                .enterYearOfConstruction(prop.getProperty("default_data.search.year_built_input"));
+        searchPage.enterAddressWithoutSelectingSuggestion(config.get("default_data.search.address"))
+                .enterNOI(config.get("default_data.search.noi"))
+                .enterNumberOfUnits(config.get("default_data.search.no_of_units"))
+                .enterYearOfConstruction(config.get("default_data.search.year_built_input"));
     }
 
     @Then("the Run Valuation button should be disabled")

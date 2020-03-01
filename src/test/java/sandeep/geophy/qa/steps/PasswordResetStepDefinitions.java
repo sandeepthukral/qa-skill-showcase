@@ -12,10 +12,8 @@ import static sandeep.geophy.qa.utils.RandomGenerator.getRandomEmail;
 
 public class PasswordResetStepDefinitions extends TestBase {
 
-    private Context context;
-
     public PasswordResetStepDefinitions(Context context){
-        this.context = context;
+        super(context);
     }
 
     PasswordResetPage page = new PasswordResetPage();

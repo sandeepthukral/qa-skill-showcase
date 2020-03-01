@@ -14,10 +14,8 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginStepDefinitions extends TestBase {
 
-    private Context context;
-
     public LoginStepDefinitions(Context context){
-        this.context = context;
+        super(context);
     }
 
     LoginPage loginPage = new LoginPage();
@@ -29,12 +27,12 @@ public class LoginStepDefinitions extends TestBase {
 
     @When("I enter a correct username")
     public void iEnterACorectUsername() {
-        loginPage.enterUsername(prop.getProperty("username", "blank"));
+        loginPage.enterUsername(config.get("username"));
     }
 
     @And("I enter a correct password")
     public void iEnterACorrectPassword() {
-        loginPage.enterPassword(prop.getProperty("password", "blank"));
+        loginPage.enterPassword(config.get("password"));
     }
 
     @Then("I should be logged in")
@@ -61,10 +59,7 @@ public class LoginStepDefinitions extends TestBase {
     @Given("I am logged in to Evra")
     public void iAmLoggedInToEvra() {
         loginPage.visit()
-                .login(
-                        prop.getProperty("username", "blank"),
-                        prop.getProperty("password", "blank")
-                );
+                .login(config.get("username"), config.get("password"));
     }
 
     @Then("I should be at the login page")

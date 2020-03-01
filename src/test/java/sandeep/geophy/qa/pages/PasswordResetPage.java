@@ -22,7 +22,7 @@ public class PasswordResetPage {
     }
 
     public void visit() {
-        open("/password/reset");
+        open("password/reset");
     }
 
     public PasswordResetPage enterEmailAddress(String email) {

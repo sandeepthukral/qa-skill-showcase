@@ -78,9 +78,9 @@ public class SearchPage {
     public Map<String, String> getRecentSearchInformation() {
         HashMap<String, String> recentSearchInfo = new HashMap<String, String>();
         SelenideElement row = $("table#tblValuationHistory tr", 1);
-        String address = row.find("td", 2).innerText().strip();
-        String numberOfUnits = row.find("td", 5).innerText().strip();
-        String yearConstruction = row.find("td", 4).innerText().strip();
+        String address = row.find("td", 2).innerText().trim();
+        String numberOfUnits = row.find("td", 5).innerText().trim();
+        String yearConstruction = row.find("td", 4).innerText().trim();
         recentSearchInfo.put("address", address);
         recentSearchInfo.put("numberOfUnits", numberOfUnits);
         recentSearchInfo.put("yearOfConstruction", yearConstruction);

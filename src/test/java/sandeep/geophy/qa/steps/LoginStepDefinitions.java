@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import sandeep.geophy.qa.TestBase;
 import sandeep.geophy.qa.pages.LoginPage;
 import sandeep.geophy.qa.pages.SearchPage;
@@ -69,5 +70,15 @@ public class LoginStepDefinitions extends TestBase {
     @Then("I should be at the login page")
     public void iAmLoggedOut() {
         assertTrue("User did not land at the Login Page", loginPage.isPageDisplayed());
+    }
+
+    @Then("I should be redirected to the login page")
+    public void iShouldBeRedirectedToTheLoginPage() {
+        Assert.assertTrue("Login page was not displayed", loginPage.isPageDisplayed());
+    }
+
+    @And("I should see the password reset success message")
+    public void iShouldSeeThePasswordResetSuccessMessage() {
+        Assert.assertTrue("The succeess message was not displayed", loginPage.isSuccessAlertDisplayed());
     }
 }

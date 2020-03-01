@@ -15,7 +15,8 @@ public class LoginPage{
             submitButton=$("button[type='submit']"),
             forgotPasswordLink=$("a[href='https://evra.geophy.com/password/reset']"),
             signupLink=$("a[href='https://evra.geophy.com/signup']"),
-            form=$("#form_login");
+            form=$("#form_login"),
+            successAlert=$(".alert--success");
 
     public LoginPage visit() {
         open("login");
@@ -53,5 +54,9 @@ public class LoginPage{
         //TODO not very happy with this. Need to find an alternative
         form.shouldBe(Condition.visible);
         return true;
+    }
+
+    public boolean isSuccessAlertDisplayed() {
+        return successAlert.isDisplayed();
     }
 }

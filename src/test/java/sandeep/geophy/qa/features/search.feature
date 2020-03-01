@@ -35,3 +35,10 @@ Feature: Search page and results
     And I am on the Evra search page
     When I click on the sample report
     Then the sample report should be displayed in a new tab
+
+
+## Commented because implementing registering a new user will take a long time
+#  Scenario: recent searches section should not be displayed for a new user
+#    Given a new user is registered
+#    When the new user logs in to Evra
+#    Then the recent searches section should not be displayed

@@ -7,7 +7,7 @@ Feature: Geophy Login screen
     And I submit the form
     Then I should be logged in
 
-  Scenario: password recovery form is displayed when forgot password link is clicked
+  Scenario: password reset form is displayed when forgot password link is clicked
     Given an open browser with login page
     When the Forgot Password link is clicked
     Then the password reset page should be displayed
@@ -22,3 +22,18 @@ Feature: Geophy Login screen
     Given I am logged in to Evra
     When I click the logout link
     Then I should be at the login page
+
+  ## The following scenarios are commented because wither they may not be good candidates for automation
+  ## or they can be automated with more time and effort
+#  Scenario: appropriate error is displayed when username field is empty
+#    Given an open browser with login page
+#    When I enter a username
+#    And I submit the form
+#    Then I should see the password is missing error message
+#
+#  Scenario: appropriate error is displayed when password field is empty
+#    Given an open browser with login page
+#    When I enter a password
+#    And I submit the form
+#    Then I should see the username is missing error message
+

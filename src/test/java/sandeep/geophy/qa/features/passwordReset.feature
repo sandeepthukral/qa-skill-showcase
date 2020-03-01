@@ -1,6 +1,6 @@
 Feature: Password Reset functionality
 
-  Scenario: password reset for a user that does not exist
+  Scenario: Password reset for a user that does not exist
     Given I am on the password reset page
     And I request password reset for a random email
     Then I should be redirected to the login page

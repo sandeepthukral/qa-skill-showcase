@@ -10,7 +10,9 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/java/sandeep/geophy/qa/features",
         glue = "",
-        plugin = {"pretty", "de.monochromata.cucumber.report.PrettyReports:test-reports/cucumber"},
+        plugin = {"pretty",
+                "de.monochromata.cucumber.report.PrettyReports:test-reports/cucumber",
+                "rerun:test-reports/rerun.txt"},
         strict = true
         )
 public class TestRunner {

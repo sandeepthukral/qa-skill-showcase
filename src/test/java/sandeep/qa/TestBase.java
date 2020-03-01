@@ -1,7 +1,7 @@
-package sandeep.geophy.qa;
+package sandeep.qa;
 
 import com.codeborne.selenide.Configuration;
-import sandeep.geophy.qa.utils.Context;
+import sandeep.qa.utils.Context;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class TestBase {
             if (null == prop) {
                 // Read the properties file
                 prop = new Properties();
-                FileInputStream fis = new FileInputStream("src/test/java/sandeep/geophy/qa/config.properties");
+                FileInputStream fis = new FileInputStream("src/test/java/sandeep/qa/config.properties");
                 prop.load(fis);
 
                 // feed this to a hashmap

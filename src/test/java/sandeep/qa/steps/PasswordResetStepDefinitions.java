@@ -1,14 +1,14 @@
-package sandeep.geophy.qa.steps;
+package sandeep.qa.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import sandeep.geophy.qa.TestBase;
-import sandeep.geophy.qa.pages.PasswordResetPage;
-import sandeep.geophy.qa.utils.Context;
+import sandeep.qa.TestBase;
+import sandeep.qa.pages.PasswordResetPage;
+import sandeep.qa.utils.Context;
 
 import static org.junit.Assert.assertTrue;
-import static sandeep.geophy.qa.utils.RandomGenerator.getRandomEmail;
+import static sandeep.qa.utils.RandomGenerator.getRandomEmail;
 
 public class PasswordResetStepDefinitions extends TestBase {
 

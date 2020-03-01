@@ -1,4 +1,4 @@
-package sandeep.geophy.qa.utils;
+package sandeep.qa.utils;
 
 import java.util.HashMap;
 import java.util.Map;

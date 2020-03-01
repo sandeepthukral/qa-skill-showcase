@@ -1,4 +1,4 @@
-package sandeep.geophy.qa.runner;
+package sandeep.qa.runner;
 
 import com.codeborne.selenide.junit.ScreenShooter;
 import io.cucumber.junit.Cucumber;
@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/java/sandeep/geophy/qa/features",
+        features = "src/test/java/sandeep/qa/features",
         glue = "",
         plugin = {"pretty",
                 "de.monochromata.cucumber.report.PrettyReports:test-reports/cucumber",

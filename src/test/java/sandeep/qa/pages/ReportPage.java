@@ -1,8 +1,8 @@
-package sandeep.geophy.qa.pages;
+package sandeep.qa.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import sandeep.geophy.qa.TestBase;
+import sandeep.qa.TestBase;
 
 import java.io.File;
 import java.io.FileNotFoundException;

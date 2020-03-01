@@ -1,13 +1,13 @@
-package sandeep.geophy.qa.steps;
+package sandeep.qa.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import sandeep.geophy.qa.TestBase;
-import sandeep.geophy.qa.pages.ReportPage;
-import sandeep.geophy.qa.pages.SearchPage;
-import sandeep.geophy.qa.utils.Context;
+import sandeep.qa.TestBase;
+import sandeep.qa.pages.ReportPage;
+import sandeep.qa.pages.SearchPage;
+import sandeep.qa.utils.Context;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;

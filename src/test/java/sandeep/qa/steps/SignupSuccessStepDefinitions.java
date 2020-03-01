@@ -1,9 +1,9 @@
-package sandeep.geophy.qa.steps;
+package sandeep.qa.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import sandeep.geophy.qa.pages.SignupSuccessPage;
+import sandeep.qa.pages.SignupSuccessPage;
 
 public class SignupSuccessStepDefinitions {
 

@@ -1,4 +1,4 @@
-package sandeep.geophy.qa.utils;
+package sandeep.qa.utils;
 
 import org.apache.commons.lang.RandomStringUtils;
 

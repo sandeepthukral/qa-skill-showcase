@@ -1,4 +1,4 @@
-package sandeep.geophy.qa.pages;
+package sandeep.qa.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;

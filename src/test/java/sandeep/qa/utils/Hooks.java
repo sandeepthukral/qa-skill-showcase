@@ -1,4 +1,4 @@
-package sandeep.geophy.qa.utils;
+package sandeep.qa.utils;
 
 import com.codeborne.selenide.Configuration;
 import io.cucumber.java.After;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import sandeep.geophy.qa.TestBase;
+import sandeep.qa.TestBase;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;

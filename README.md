@@ -1,7 +1,7 @@
-# geophy-qa-skill-showcase
+# qa-skill-showcase
 
 ## About
-This is my attempt at the QA Skill Showcase for geoPhy
+This is my attempt at the QA Skill Showcase
 
 ## Requirements
 - Git
@@ -9,9 +9,9 @@ This is my attempt at the QA Skill Showcase for geoPhy
 
 ## Instructions for OsX
 - Clone the repo \
-`git clone https://github.com/sandeepthukral/geophy-qa-skill-showcase.git`
+`git clone https://github.com/sandeepthukral/qa-skill-showcase.git`
 - Once done, move into the repo folder\
-`cd geophy-qa-skill-showcase`
+`cd qa-skill-showcase`
 - Run the following command to execute the tests \
 `./gradlew clean test`
 - The report will be available in the folder `test-report/cucumber`. Open it using the command \
@@ -32,11 +32,11 @@ But it mainly is a wrapper on selenium webdriver, providing useful, fluent acces
 This will be useful when running on Jenkins using solutions like selenoid or zalenium.
 
 ### Structure
-- `sandeep.geophy.qa.features` - Contains the feature files
-- `sandeep.geophy.qa.pages` - Page Object implementation
-- `sandeep.geophy.qa.runner` - Contains the TestRunner 
-- `sandeep.geophy.qa.steps` - Contains the Step Definition Files
-- `sandeep.geophy.qa.utils` - Utilities and Hooks code 
+- `sandeep.qa.features` - Contains the feature files
+- `sandeep.qa.pages` - Page Object implementation
+- `sandeep.qa.runner` - Contains the TestRunner 
+- `sandeep.qa.steps` - Contains the Step Definition Files
+- `sandeep.qa.utils` - Utilities and Hooks code 
 
 ### Classes
 - TestBase - Does one-time reading of properties and test data.

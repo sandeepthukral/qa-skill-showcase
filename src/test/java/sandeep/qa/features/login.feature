@@ -1,4 +1,4 @@
-Feature: Geophy Login screen
+Feature: Evra Login screen
 
   Scenario: User can login with correct credentials
     Given an open browser with login page
